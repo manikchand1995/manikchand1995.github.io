@@ -1,656 +1,1453 @@
 <!DOCTYPE html>
 <html>
-
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="keywords" content="Cloud Bar, Vape Lounge, Vape, Hookah, Vape Shop,Vape bar, E-sigaret, E-vedelik, Vesipiip, Coctail bar, Estonia, Tallinn">
- <meta name="description" content="Vape-hookah coctail bar in Tallinn, Estonia">
- <title>Manik's Cloud | Web page</title>
- <link rel="stylesheet" href="css/normalize.css">
- <link rel="stylesheet" href="css/main.css">
- <script src="js/preload.js" charset="utf-8"></script>
- <script src="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
 
-td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
-th {
-    border: 2px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    font-size: 20px;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-}
-tr:nth-child(even) {
-    background-color: #dddddd;
-color:black;
-}
-</style>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css">
+
+
+<script>
+
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+select: {
+            style: 'multi'
+        },
+        dom: 'Bfrtip',
+        lengthChange: false,
+        buttons: [ 
+
+            {
+                extend:    'copy',
+                text:      '<i class="fa fa-files-o"> Copy</i>',
+                titleAttr: 'Copy'
+            },
+            {
+                extend:    'excel',
+                text:      '<i class="fa fa-file-excel-o"> Excel</i>',
+                titleAttr: 'Excel'
+            },
+            {
+                extend:    'csv',
+                text:      '<i class="fa fa-file-text-o"> CSV</i>',
+                titleAttr: 'CSV'
+            },
+            {
+                extend:    'pdf',
+                text:      '<i class="fa fa-file-pdf-o"> PDF</i>',
+                titleAttr: 'PDF'
+            },'print', 'colvis' 
+]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+} );
+
+</script>
 
 </head>
+<body>
 
-<body onload="unFold();">
-<!--
- <div id="preloader" class="preloader">
-  <div class="preload preloader1"></div>
-  <div class="preload preloader2"></div>
--->
-  <svg version="1.1" id="flash1" class="flash" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-223 25 512 512" style="enable-background:new -223 25 512 512;" xml:space="preserve">
-        <style type="text/css">
-        	.st8{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-        </style>
-        <polygon class="st8" points="-100,518 169,205 53,205 159,35 25,35 -100,286 2,286 "/>
-        <path class="st8" d="M511,176"/>
-        </svg>
+<h1><center>GDS VACANCY LIST</center></h1>
+<p><center>Seetha Balu</center></p>
 
-  <script>
-   var flash = document.getElementById("flash1");
-   
-   function animate() {
-    flash.style.opacity = Math.random();
-   
-    window.requestAnimationFrame(animate);
-   }
-   
-   animate();
-  </script>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Division</th>
+                <th>HO Name</th>
+                <th>SO Name</th>
+                <th>BO Name</th>
+                <th>Post Name</th>
+                <th>Category</th>
+                <th>No of Posts</th>
+                <th>Scale of Pay</th>
+                <th>Recruiting Authority</th>
+            </tr>
+        </thead>
+        <tbody>
 
-
- </div>
- <!--End of Preloader-->
-
- <nav class="navbar">
-  <div class="burger-nav">
-   <div class="header"></div>
-   <ul class="open">
-    <li><a href="#About">ABOUT US</a></li>
-    <li><a href="#Menu">MENU</a></li>
-    <li><a href="#Contact">CONTACT</a></li>
-    <li class="lang-drop"><a href="#Lang">In English</a></li>
-    <div class="lang-content">
-     <ul class="lang-opt">
-      <li><a href="est.html">Eesti</a></li>
-      <li><a href="rus.html">Русский</a></li>
-     </ul>
-    </div>
-   </ul>
-  </div>
-  <!--End of burger-nav-->
-  <ul class="links">
-   <li><a href="#About" class="nav-item">ABOUT US</a></li>
-   <li><a href="#Menu" class="nav-item">MENU</a></li>
-   <li>
-    <a href="#Home" class="" id="Logo"></a>
-   </li>
-   <li><a href="#Contact" class="nav-item">CONTACT</a></li>
-   <li><a href="#Lang" class="nav-item lang">in English</a>
-    <!-- <img src="img/down-arrow.svg" id="arrow"> -->
-    <div class="nav-content">
-     <div class="nav-sub">
-      <ul>
-       <li><a href="est.html">Eesti</a></li>
-       <li><a href="rus.html">Русский</a></li>
-      </ul>
-     </div>
-    </div>
-    <!--End of dropdown content-->
-   </li>
-
-  </ul>
- </nav>
- <!--End of Navbar-->
-
- <div class="slider" id="Home">
-
-  <div class="controllers">
-   <li><img src="img/backward-arrow.svg" class="prev"></li>
-   <li><img src="img/arrow.svg" class="next"></li>
-  </div>
+ 
+ <tr><td>1</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>GavarappattuB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>2</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>Jayankondapattinam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>3</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>Nakkaravanthankudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>4</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>Nakkaravanthankudi B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>5</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>PichavaramB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>6</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Annamalainagar S.O</td><td>PichavaramB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>7</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>B.Mutlur S.O</td><td>Kothattai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>8</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>B.Mutlur S.O</td><td>Manjakuli B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>9</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>B.Mutlur S.O</td><td>PuduchatramB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>10</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>B.Mutlur S.O</td><td>PuduchatramB.O</td><td>GDS BPM</td><td>PH-OH</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>11</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>B.Mutlur S.O</td><td>Theethampalayam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>12</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>BhuvanagiriS.O</td><td>KummidimulaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>13</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>BhuvanagiriS.O</td><td>ManjakollaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>14</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>BhuvanagiriS.O</td><td>MelamanakudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>15</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>BhuvanagiriS.O</td><td>Sathapadi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>16</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Block 29,Neyveli S.O</td><td>Block 29,Neyveli S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>17</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Block 29,Neyveli S.O</td><td>NeyveliThermal BusStand S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ 
+ <tr><td>18</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Kattumannarkoil S.O</td><td>Melapalachanallur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>19</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Kattumannarkoil S.O</td><td>RajendraCholagam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>20</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Kattumannarkoil S.O</td><td>Sithamalli B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
 
 
-  <div class="slide-viewer">
-   <div class="slides">
-    <div class="slide slide-1"><img src="https://raw.githubusercontent.com/daysleeperx/cloud_bar/master/img/codepen1.png" alt=""></div>
-    <div class="slide slide-2"><img src="https://raw.githubusercontent.com/daysleeperx/cloud_bar/master/img/slide3.png" alt=""></div>
-    <div class="slide slide-3"><img src="https://raw.githubusercontent.com/daysleeperx/cloud_bar/master/img/codepen3.png" alt=""></div>
-   </div>
-  </div>
-
-  <div class="bullets">
-
-  </div>
-
-  <p class="scrolltxt">SCROLL</p>
-
-  <div class="scroll"></div>
- </div>
- <!--End of Slider-->
- <div class="sections">
-  <div id="About">
-   <h1>MANIK's CLOUD</h1>
-   <p class="intro-text">....................................................................
-...........................................................................................</p>
-  </div>
-  <div id="Menu" style="min-height: 1020px; background: black">
-
-   <div class="title">
-    <svg version="1.1" class="burger" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-377 179.4 203.6 203.6" style="enable-background:new -377 179.4 203.6 203.6;" xml:space="preserve">
-                    <style type="text/css">
-                    	.st0{fill:none;stroke:#FFF;stroke-width:6;stroke-miterlimit:10;}
-                    </style>
-                    <path class="st0" d="M-362.1,345.5c0,0-1-24.5,28.1-32h46.7c0,0,10.1,0.5,17.8,6.4l-5.7-75.8h-6.1l2.3-10.1h86.5l3.5,9.8h-5.7
-                    	l-12.6,135.1h-151.9l-2.9-4.3v-12.3l95.6,0.2l0.9,0"/>
-                    <line class="st0" x1="-269.5" y1="319.9" x2="-264" y2="378.9"/>
-                    <polyline class="st0" points="-267,347.1 -362.1,347.1 -361.9,342.1 "/>
-                    <path class="st0" d="M-353.3,362.3c0,0-9-6.7,0-15.2"/>
-                    <line class="st0" x1="-275.2" y1="244.1" x2="-194.7" y2="243.8"/>
-                    <path class="st0" d="M-234.9,234v-20.2c0,0-1-7.8,10.2-14.8l26.5-15.9"/>
-                    </svg>
-   </div>
-   <!--End of Title-->
 
 
-   <div class="tables">
-    <div class="column1">
-      </div>
-  <table class="burgers">
-      <tr>
-       <th class="number">1</th>
-       <th>AUDIOS</th>
-      </tr>
-      <tr>
-       <td></td>
-       <td>
-        <h4>Audios</h4><br>
-        <h4>Audios</h4><br>
-        <h4>Audios</h4><br>
-        <h4>Audios</h4><br>
-        <h4>Audios</h4><br>
-       </td>
-      </tr>
-     </table>
-     <table class="vapes">
-      <tr>
-       <th class="number">3</th>
-       <th>PICTURES</th>
-      </tr>
-      <tr>
-       <td></td>
-       <td>
-        <h4>Pictures</h4><br>
-        <h4>Pictures</h4><br>
-        <h4>Pictures</h4><br>
-        <h4>Pictures</h4><br>
-        <h4>Pictures</h4><br>
-       </td>
-      </tr>
-     </table>
-    </div>
 
-    <div class="column2">
-     <table class="cocktails">
-      <tr>
-       <th class="number">2</th>
-       <th>VIDEOS</th>
-      </tr>
-      <tr>
-       <td></td>
-       <td>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-        <h4>Video</h4><br>
-       </td>
-      </tr>
-     </table>
 
--->
 
-   </div>
-   <!--End of Tables-->
 
-   <div class="booking">
-    <a href="#book"><h2>BOOK APPOINTMENT</h2></a>
-   </div>
-   <!--End of Booking!-->
-  </div>
-  <!--End of Menu-->
 
-  <div id="Contact" style="min-height: 1300px" background="black">
-   <div id="map"></div>
-   <!--Map-->
-   <script>
-    function initMap() {
-     var map = new google.maps.Map(document.getElementById("map"), {
-      center: {
-       lat: 10.0731,
-       lng: 78.7802
-      },
-      zoom: 15,
-      gestureHandling: "none",
-      scrollwheel: false,
-      styles: [
-       {
-        featureType: "administrative.locality",
-        elementType: "all",
-        stylers: [
-         {
-          hue: "#2c2e33"
-         },
-         {
-          saturation: 7
-         },
-         {
-          lightness: 19
-         },
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "administrative.locality",
-        elementType: "labels.text",
-        stylers: [
-         {
-          visibility: "off"
-         },
-         {
-          color: "#1366da"
-         }
-        ]
-       },
-       {
-        featureType: "administrative.neighborhood",
-        elementType: "labels.text",
-        stylers: [
-         {
-          visibility: "simplified"
-         },
-         {
-          color: "#1366da"
-         }
-        ]
-       },
-       {
-        featureType: "landscape",
-        elementType: "all",
-        stylers: [
-         {
-          hue: "#ffffff"
-         },
-         {
-          saturation: -100
-         },
-         {
-          lightness: 100
-         },
-         {
-          visibility: "simplified"
-         }
-        ]
-       },
-       {
-        featureType: "landscape.man_made",
-        elementType: "geometry.fill",
-        stylers: [
-         {
-          color: "#f9f9f5"
-         }
-        ]
-       },
-       {
-        featureType: "landscape.man_made",
-        elementType: "labels.text",
-        stylers: [
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "poi",
-        elementType: "all",
-        stylers: [
-         {
-          hue: "#ffffff"
-         },
-         {
-          saturation: -100
-         },
-         {
-          lightness: 100
-         },
-         {
-          visibility: "off"
-         }
-        ]
-       },
-       {
-        featureType: "poi",
-        elementType: "labels.text",
-        stylers: [
-         {
-          color: "#231f20"
-         }
-        ]
-       },
-       {
-        featureType: "road",
-        elementType: "geometry",
-        stylers: [
-         {
-          hue: "#bbc0c4"
-         },
-         {
-          saturation: -93
-         },
-         {
-          lightness: 31
-         },
-         {
-          visibility: "simplified"
-         }
-        ]
-       },
-       {
-        featureType: "road",
-        elementType: "labels",
-        stylers: [
-         {
-          hue: "#bbc0c4"
-         },
-         {
-          saturation: -93
-         },
-         {
-          lightness: 31
-         },
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "road.highway.controlled_access",
-        elementType: "labels.text",
-        stylers: [
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "road.arterial",
-        elementType: "labels",
-        stylers: [
-         {
-          hue: "#bbc0c4"
-         },
-         {
-          saturation: -93
-         },
-         {
-          lightness: -2
-         },
-         {
-          visibility: "simplified"
-         }
-        ]
-       },
-       {
-        featureType: "road.arterial",
-        elementType: "labels.text",
-        stylers: [
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "road.local",
-        elementType: "geometry",
-        stylers: [
-         {
-          hue: "#e9ebed"
-         },
-         {
-          saturation: -90
-         },
-         {
-          lightness: -8
-         },
-         {
-          visibility: "simplified"
-         }
-        ]
-       },
-       {
-        featureType: "transit",
-        elementType: "all",
-        stylers: [
-         {
-          hue: "#e9ebed"
-         },
-         {
-          saturation: 10
-         },
-         {
-          lightness: 69
-         },
-         {
-          visibility: "on"
-         }
-        ]
-       },
-       {
-        featureType: "water",
-        elementType: "all",
-        stylers: [
-         {
-          hue: "#e9ebed"
-         },
-         {
-          saturation: -78
-         },
-         {
-          lightness: 67
-         },
-         {
-          visibility: "simplified"
-         }
-        ]
-       }
-      ]
-     });
+
+
+
+ 
+ <tr><td>21</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>KeerapalayamS.O</td><td>C.Veeracholagam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>22</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>KeerapalayamS.O</td><td>C.Veeracholagam B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>23</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>KeerapalayamS.O</td><td>K.Adur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>24</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>KeerapalayamS.O</td><td>KrishnapuramB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>25</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Killai S.O</td><td>Keelamoongiladi B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>26</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Killai S.O</td><td>Killai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>27</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Killai S.O</td><td>Nanjamahathuvazkai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>28</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Killai S.O</td><td>Pinnathur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>29</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Killai S.O</td><td>Thillaividangan B.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>30</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Lalpet S.O</td><td>Maniadur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>31</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Lalpet S.O</td><td>Neyvasal B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>32</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 1 S.O</td><td>Block 1,Neyveli S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>33</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 2 S.O</td><td>A.Kuravankuppam B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>34</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 2 S.O</td><td>A.Kuravankuppam B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>35</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 2 S.O</td><td>MelakolakudiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>36</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 2 S.O</td><td>MelakuppamB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>37</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 2 S.O</td><td>SeplanathamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>38</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Neyveli 3 S.O</td><td>Block 18,Neyveli S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>39</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Orathur S.O</td><td>AyyanurAkkaramangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>40</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Orathur S.O</td><td>Orathur S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>41</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Orathur S.O</td><td>Vakkur B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>42</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>ParangipettaiS.O</td><td>C.PudupettaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>43</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>ParangipettaiS.O</td><td>C.PudupettaiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>44</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>ParangipettaiS.O</td><td>SamiyarpettaiB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>45</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Perperiyankuppam S.O</td><td>Mudapuli B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>46</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Perperiyankuppam S.O</td><td>Perperiyankuppam S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <tr><td>47</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Pinnalur S.O</td><td>Pinnalur S.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>48</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Pinnalur S.O</td><td>ValayamadeviB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>49</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Reddiyur S.O</td><td>Eyyalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>50</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Reddiyur S.O</td><td>Eyyalur B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>51</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Reddiyur S.O</td><td>M.Adanur</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>52</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Sethiatoppu</td><td>Kavalakudi</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>53</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Sethiatoppu</td><td>Sethiatoppu</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>54</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Sethiatoppu</td><td>Veeramudayanatham</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>55</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>Kavanur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>56</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>Kavanur B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>57</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>Marungur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>58</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>Sri Pudur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>59</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>SrinedunjeriB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>60</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>SrimushnamS.O</td><td>Sriraman B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>61</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>T.Neduncheri</td><td>Kuduveli</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>62</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>T.Neduncheri</td><td>Mugaiyur</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>63</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>T.Neduncheri</td><td>T.Neduncheri</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Chidambaram West SubDivision</td></tr>
+ 
+ 
+ <tr><td>64</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Vallampadugai S.O</td><td>Karuppur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Chidambaram East SubDivision</td></tr>
+ 
+ 
+ <tr><td>65</td><td>Cuddalore</td><td>ChidambaramH.O</td><td>Vallampadugai S.O</td><td>Vadakkumangudi B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>66</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>AlapakkamS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>67</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>AlapakkamS.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>68</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>Andarmullipallam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>69</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>Andarmullipallam B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>70</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>PeriyakuppamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>71</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>PoochimeduB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>72</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>AlapakkamS.O</td><td>Silambimangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+
+
+ 
+ <tr><td>73</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Anathur S.O</td><td>Aviyanur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>74</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Anathur S.O</td><td>Kudimiyankuppam B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>75</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Anathur S.O</td><td>SirugramamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>76</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Chinnappanaickenpalayam</td><td>Chinnappanaickenpalayam</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>77</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Chinnappanaickenpalayam</td><td>Naduveerapattu</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>78</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Chinnappanaickenpalayam</td><td>Silambinathanpettai</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>79</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Cuddalore OldTown S.O</td><td>Cuddalore OTBazaar</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>80</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Cuddalore OldTown S.O</td><td>Kodukkanpalayam B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>81</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Cuddalore OldTown S.O</td><td>Pachayankuppam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>82</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Cuddalore OldTown S.O</td><td>RamapuramB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>83</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Cuddalore OldTown S.O</td><td>Valisodanaipalayam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>84</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Gandhi NagarS.O(Cuddalore)</td><td>Gandhi NagarS.O(Cuddalore)</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>85</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KadambuliyurS.O</td><td>Marungur B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>86</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KadambuliyurS.O</td><td>Nadukuppam</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>87</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Kondur S.O</td><td>GunduUppalavadiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>88</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>AnukkampattuB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>89</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>KullanchavadiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>90</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>KundiyamallurB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>91</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>Samattikuppam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>92</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>T.PalayamB.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>93</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KullanchavadiS.O</td><td>Valudalampattu B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>94</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Arangamangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>95</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Chinnakannadi B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>96</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Kalkunam B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>97</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Kilur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>98</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>KurinjipadiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+
+
+
+
+
+ 
+ <tr><td>99</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Pethanaickenkuppam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>100</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>KurinjipadiS.O</td><td>Venkatampettai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>101</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Melpattambakkam S.O</td><td>Elumedu B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>102</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Melpattambakkam S.O</td><td>KalinjikuppamB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>103</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Melpattambakkam S.O</td><td>KongarayanurB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>104</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Melpattambakkam S.O</td><td>SornavurMelpathi B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>105</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Melpattambakkam S.O</td><td>SornavurMelpathi B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>106</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Nellikuppam</td><td>Nellikuppam</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>107</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Nellikuppam</td><td>Nellikuppam</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>108</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Nellikuppam</td><td>Vanamadevi</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>109</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Panruti S.O</td><td>Anguchettipalayam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>110</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Panruti S.O</td><td>Panruti S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>111</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Panruti S.O</td><td>Sathipattu B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>112</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Panruti S.O</td><td>SiruvathurB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>113</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Puthupet(CDL) S.O</td><td>BandarakottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>114</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Puthupet(CDL) S.O</td><td>Puthupet(CDL) S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>2</td><td>10000-24470</td><td>IP,Neyveli SubDivision</td></tr>
+ 
+ <tr><td>115</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>SipcotCuddalore S.O</td><td>Poondiyankuppam B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>116</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Tiruppadiripuliyur S.O</td><td>Tiruppadiripuliyur BazaarS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>117</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Tiruppadiripuliyur S.O</td><td>Tiruppadiripuliyur S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>118</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>TiruthuraiyurS.O</td><td>AkkadavalliB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>119</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>TiruthuraiyurS.O</td><td>AkkadavalliB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>120</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>TiruthuraiyurS.O</td><td>Kumaramangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>121</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>TiruthuraiyurS.O</td><td>Kumaramangalam B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>122</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Tiruvendipuram</td><td>Padirikuppam</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Cuddalore</td></tr>
+ 
+ <tr><td>123</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Tiruvendipuram</td><td>Sundaravandi</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>124</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Vadalur S.O</td><td>VadakuthuB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+
+
+
+
+
+
+
+
+ 
+ <tr><td>125</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Vadalur S.O</td><td>Vadalur S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-OTR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>126</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>Vadalur S.O</td><td>Vanatharayapuram</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>127</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>VandipalayamS.O</td><td>M.Pudur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreSouth SubDivision</td></tr>
+ 
+ 
+ <tr><td>128</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>VarakalpattuS.O</td><td>NathapattuB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>129</td><td>Cuddalore</td><td>CuddaloreH.O</td><td>VarakalpattuS.O</td><td>VarakalpattuS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,CuddaloreNorth SubDivision</td></tr>
+ 
+ 
+ <tr><td>130</td><td>Karur</td><td>Karur H.O</td><td>AravakurichiS.O</td><td>AravakurichiS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>2</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>131</td><td>Karur</td><td>Karur H.O</td><td>AravakurichiS.O</td><td>AravakurichiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>132</td><td>Karur</td><td>Karur H.O</td><td>AravakurichiS.O</td><td>VelampundiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>133</td><td>Karur</td><td>Karur H.O</td><td>Chinnadarapuram S.O</td><td>Chinnadarapuram S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>134</td><td>Karur</td><td>Karur H.O</td><td>Chinnadarapuram S.O</td><td>Rengapalayam B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>135</td><td>Karur</td><td>Karur H.O</td><td>Chinnadarapuram S.O</td><td>Thokkupattipudur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>136</td><td>Karur</td><td>Karur H.O</td><td>Chinnadarapuram S.O</td><td>Uttupatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>137</td><td>Karur</td><td>Karur H.O</td><td>Isanatham S.O</td><td>SoolapuramB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>138</td><td>Karur</td><td>Karur H.O</td><td>Isanatham S.O</td><td>Zamin AthurB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>139</td><td>Karur</td><td>Karur H.O</td><td>KagithapuramS.O</td><td>KagithapuramS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>140</td><td>Karur</td><td>Karur H.O</td><td>KagithapuramS.O</td><td>Moolimangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>141</td><td>Karur</td><td>Karur H.O</td><td>KarurCollectorateS.O</td><td>KarurCollectorateS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ 
+ <tr><td>142</td><td>Karur</td><td>Karur H.O</td><td>KarurCollectorateS.O</td><td>KathalapattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ 
+ <tr><td>143</td><td>Karur</td><td>Karur H.O</td><td>Karur H.O</td><td>Karur H.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>144</td><td>Karur</td><td>Karur H.O</td><td>MoolapattiS.O</td><td>Venjamangudalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>145</td><td>Karur</td><td>Karur H.O</td><td>PallapattiBazaar S.O</td><td>A.Meenakshivalasu B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>146</td><td>Karur</td><td>Karur H.O</td><td>PallapattiBazaar S.O</td><td>Modakkur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>147</td><td>Karur</td><td>Karur H.O</td><td>PallapattiBazaar S.O</td><td>PallapattiBazaar S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-VH</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>148</td><td>Karur</td><td>Karur H.O</td><td>PallapattiBazaar S.O</td><td>VerisinampattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <tr><td>149</td><td>Karur</td><td>Karur H.O</td><td>Pallapatti S.O(Karur)</td><td>Karuppapillaipudur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>150</td><td>Karur</td><td>Karur H.O</td><td>Pallapatti S.O(Karur)</td><td>Kurikkaranvalasu B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>151</td><td>Karur</td><td>Karur H.O</td><td>Pallapatti S.O(Karur)</td><td>Pappanaickenpatti B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>152</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>Ariyur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>153</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>AthipalayamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>154</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>AthipalayamB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>155</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>KattumunnurB.O</td><td>GDS BPM</td><td>PH-VH</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>156</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>Munnur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>157</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>Munnur B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>158</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>NadanthaiNorth B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>159</td><td>Karur</td><td>Karur H.O</td><td>Paramathi(Karur) S.O</td><td>Nedungur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>160</td><td>Karur</td><td>Karur H.O</td><td>Pasupathipalayam S.O</td><td>Gandhigramam S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>161</td><td>Karur</td><td>Karur H.O</td><td>Pasupathipalayam S.O</td><td>Nerur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>162</td><td>Karur</td><td>Karur H.O</td><td>Pasupathipalayam S.O</td><td>Renganathampettai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>163</td><td>Karur</td><td>Karur H.O</td><td>Pasupathipalayam S.O</td><td>SenapirattiB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>164</td><td>Karur</td><td>Karur H.O</td><td>Pugalur SugarFactory S.O</td><td>EastTavittupalayam B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ 
+ <tr><td>165</td><td>Karur</td><td>Karur H.O</td><td>Pugalur SugarFactory S.O</td><td>Kadambankurichi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>166</td><td>Karur</td><td>Karur H.O</td><td>Pugalur SugarFactory S.O</td><td>Nanniyur B.O</td><td>GDS BPM</td><td>PH-HH</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>167</td><td>Karur</td><td>Karur H.O</td><td>Pugalur SugarFactory S.O</td><td>West OrathaiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>168</td><td>Karur</td><td>Karur H.O</td><td>PuliyurCementFactory S.O</td><td>KoyampalliB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ 
+ <tr><td>169</td><td>Karur</td><td>Karur H.O</td><td>PuliyurCementFactory S.O</td><td>PuliyurCementFactory S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ 
+ <tr><td>170</td><td>Karur</td><td>Karur H.O</td><td>PuliyurCementFactory S.O</td><td>Somur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ 
+ <tr><td>171</td><td>Karur</td><td>Karur H.O</td><td>PuliyurCementFactory S.O</td><td>Uppidamangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ 
+ <tr><td>172</td><td>Karur</td><td>Karur H.O</td><td>Sengunthapuram S.O</td><td>Sengunthapuram S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>173</td><td>Karur</td><td>Karur H.O</td><td>Sengunthapuram S.O</td><td>Sengunthapuram S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>2</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>174</td><td>Karur</td><td>Karur H.O</td><td>Sengunthapuram S.O</td><td>Viswanathapuri B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>175</td><td>Karur</td><td>Karur H.O</td><td>Tennilai S.O</td><td>ChinnavangalampalayamB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ 
+ <tr><td>176</td><td>Karur</td><td>Karur H.O</td><td>Tennilai S.O</td><td>Tennilai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+
+
+
+
+
+
+
+
+ 
+ <tr><td>177</td><td>Karur</td><td>Karur H.O</td><td>Thanthonimalai S.O</td><td>KodangipattiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>178</td><td>Karur</td><td>Karur H.O</td><td>Thanthonimalai S.O</td><td>Thanthonimalai S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-OH</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>179</td><td>Karur</td><td>Karur H.O</td><td>TirumanilaiyurS.O</td><td>KakkavadiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>180</td><td>Karur</td><td>Karur H.O</td><td>TirumanilaiyurS.O</td><td>Thalapatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>181</td><td>Karur</td><td>Karur H.O</td><td>TirumanilaiyurS.O</td><td>TirumanilaiyurS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>182</td><td>Karur</td><td>Karur H.O</td><td>Vangal S.O</td><td>MinnampalliB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>183</td><td>Karur</td><td>Karur H.O</td><td>Vangal S.O</td><td>Vangal EastB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>184</td><td>Karur</td><td>Karur H.O</td><td>Velayuthampalayam S.O</td><td>NadayanurB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>185</td><td>Karur</td><td>Karur H.O</td><td>Velayuthampalayam S.O</td><td>NadayanurB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>186</td><td>Karur</td><td>Karur H.O</td><td>Velliyanai S.O</td><td>ChinnamookkanankurichiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>187</td><td>Karur</td><td>Karur H.O</td><td>Velliyanai S.O</td><td>K.Pitchampatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>188</td><td>Karur</td><td>Karur H.O</td><td>Velliyanai S.O</td><td>Porani B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Aravakurichi SubDivision</td></tr>
+ 
+ 
+ <tr><td>189</td><td>Karur</td><td>Karur H.O</td><td>Velliyanai S.O</td><td>Porani B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>190</td><td>Karur</td><td>Kulittalai H.O</td><td>Chinthamanipatti S.O</td><td>Kaniyalampatti B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>191</td><td>Karur</td><td>Kulittalai H.O</td><td>Chinthamanipatti S.O</td><td>Kilasakkarakottai B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>192</td><td>Karur</td><td>Kulittalai H.O</td><td>Chinthamanipatti S.O</td><td>Varavanai B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>193</td><td>Karur</td><td>Kulittalai H.O</td><td>ElangakurichiS.O</td><td>MohavanurB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>194</td><td>Karur</td><td>Kulittalai H.O</td><td>ElangakurichiS.O</td><td>PalayakottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>195</td><td>Karur</td><td>Kulittalai H.O</td><td>ElangakurichiS.O</td><td>Valayapatti(Manaparai)B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ 
+ <tr><td>196</td><td>Karur</td><td>Kulittalai H.O</td><td>Kovilpatti S.O</td><td>Kovilpatti S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>197</td><td>Karur</td><td>Kulittalai H.O</td><td>Kovilpatti S.O</td><td>MuthalvarpattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>198</td><td>Karur</td><td>Kulittalai H.O</td><td>Kovilpatti S.O</td><td>Piranpatti(Manaparai)B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ 
+ <tr><td>199</td><td>Karur</td><td>Kulittalai H.O</td><td>Kovilpatti S.O</td><td>Tadakkavundanpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>200</td><td>Karur</td><td>Kulittalai H.O</td><td>Kovilpatti S.O</td><td>ThottiapattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>201</td><td>Karur</td><td>Kulittalai H.O</td><td>Krishnarayapuram S.O</td><td>Mahadanapuram B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>202</td><td>Karur</td><td>Kulittalai H.O</td><td>Krishnarayapuram S.O</td><td>Manickapuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>203</td><td>Karur</td><td>Kulittalai H.O</td><td>Kulittalai H.O</td><td>Kulittalai H.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>204</td><td>Karur</td><td>Kulittalai H.O</td><td>Kulittalai H.O</td><td>Kulittalai H.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>205</td><td>Karur</td><td>Kulittalai H.O</td><td>Lalapet S.O</td><td>Kuppureddipatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>206</td><td>Karur</td><td>Kulittalai H.O</td><td>Lalapet S.O</td><td>Lalapet S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+
+
+
+
+ 
+ <tr><td>207</td><td>Karur</td><td>Kulittalai H.O</td><td>Lalapet S.O</td><td>PunavasipattiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>208</td><td>Karur</td><td>Kulittalai H.O</td><td>Lalapet S.O</td><td>Timmachipuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>209</td><td>Karur</td><td>Kulittalai H.O</td><td>Lalapet S.O</td><td>Vadiyam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>210</td><td>Karur</td><td>Kulittalai H.O</td><td>Manaparai S.O</td><td>Muthapudayanpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>211</td><td>Karur</td><td>Kulittalai H.O</td><td>ManjampattiS.O</td><td>AmayapuramB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>212</td><td>Karur</td><td>Kulittalai H.O</td><td>ManjampattiS.O</td><td>ChettiapattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>213</td><td>Karur</td><td>Kulittalai H.O</td><td>ManjampattiS.O</td><td>Karumakavundanpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>214</td><td>Karur</td><td>Kulittalai H.O</td><td>ManjampattiS.O</td><td>V.PoosaripattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>215</td><td>Karur</td><td>Kulittalai H.O</td><td>ManjampattiS.O</td><td>V.PoosaripattiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>216</td><td>Karur</td><td>Kulittalai H.O</td><td>Marudur S.O</td><td>PanickampattiB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>217</td><td>Karur</td><td>Kulittalai H.O</td><td>Mayanur S.O</td><td>Kattalai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>218</td><td>Karur</td><td>Kulittalai H.O</td><td>Mayanur S.O</td><td>Renganathapuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,KarurSub Division</td></tr>
+ 
+ <tr><td>219</td><td>Karur</td><td>Kulittalai H.O</td><td>NungavaramS.O</td><td>Neidalur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>220</td><td>Karur</td><td>Kulittalai H.O</td><td>NungavaramS.O</td><td>NeidalurSouth B.O</td><td>GDS BPM</td><td>PH-OH</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>221</td><td>Karur</td><td>Kulittalai H.O</td><td>NungavaramS.O</td><td>NungavaramS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>222</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>KalingapattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>223</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>KodumbapattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>224</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>KulathupattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>225</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>Oliyamangalam B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>226</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>PalakurichiS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>227</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>PalakurichiS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-OH</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>228</td><td>Karur</td><td>Kulittalai H.O</td><td>PalakurichiS.O</td><td>Thenur(Manaparai)B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ 
+ <tr><td>229</td><td>Karur</td><td>Kulittalai H.O</td><td>Panjapatti S.O</td><td>VellapattiZamin B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>230</td><td>Karur</td><td>Kulittalai H.O</td><td>PuthanathamS.O</td><td>Endapuli B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>231</td><td>Karur</td><td>Kulittalai H.O</td><td>PuthanathamS.O</td><td>Endapuli B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>232</td><td>Karur</td><td>Kulittalai H.O</td><td>PuthanathamS.O</td><td>Kannivadugapatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>233</td><td>Karur</td><td>Kulittalai H.O</td><td>PuthanathamS.O</td><td>Kannivadugapatti B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>234</td><td>Karur</td><td>Kulittalai H.O</td><td>PuthanathamS.O</td><td>PuthanathamS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>235</td><td>Karur</td><td>Kulittalai H.O</td><td>TharagampattiS.O</td><td>D.IdayapattiB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>236</td><td>Karur</td><td>Kulittalai H.O</td><td>TharagampattiS.O</td><td>Kadavur B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>237</td><td>Karur</td><td>Kulittalai H.O</td><td>TharagampattiS.O</td><td>Mavathur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>238</td><td>Karur</td><td>Kulittalai H.O</td><td>TharagampattiS.O</td><td>Sembianatham B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+
+
+
+
+
+
+ 
+ <tr><td>239</td><td>Karur</td><td>Kulittalai H.O</td><td>Thiagesar AlaiS.O</td><td>SeegampattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>240</td><td>Karur</td><td>Kulittalai H.O</td><td>ThogamalaiS.O</td><td>Alathur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>241</td><td>Karur</td><td>Kulittalai H.O</td><td>ThogamalaiS.O</td><td>Mathagiri B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>242</td><td>Karur</td><td>Kulittalai H.O</td><td>ThogamalaiS.O</td><td>PorundalurB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>243</td><td>Karur</td><td>Kulittalai H.O</td><td>ThogamalaiS.O</td><td>ThogamalaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>244</td><td>Karur</td><td>Kulittalai H.O</td><td>ThogamalaiS.O</td><td>ThogamalaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>245</td><td>Karur</td><td>Kulittalai H.O</td><td>Thuvarankurichi S.O</td><td>AdhigaramB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>246</td><td>Karur</td><td>Kulittalai H.O</td><td>Thuvarankurichi S.O</td><td>Kanjanaickenpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>247</td><td>Karur</td><td>Kulittalai H.O</td><td>Thuvarankurichi S.O</td><td>Pillupatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>248</td><td>Karur</td><td>Kulittalai H.O</td><td>Thuvarankurichi S.O</td><td>Pillupatti B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>249</td><td>Karur</td><td>Kulittalai H.O</td><td>Thuvarankurichi S.O</td><td>Thuvarankurichi S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>250</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiganallurS.O</td><td>Chinniyampalayam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>251</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiganallurS.O</td><td>Kunnagoundanpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>252</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiganallurS.O</td><td>VaiganallurS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KulithalaiSub Division</td></tr>
+ 
+ <tr><td>253</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiyampattiS.O</td><td>Inamponnambalapatti B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>254</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiyampattiS.O</td><td>KarungulamB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>255</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiyampattiS.O</td><td>Nadupatti B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Karur</td></tr>
+ 
+ <tr><td>256</td><td>Karur</td><td>Kulittalai H.O</td><td>VaiyampattiS.O</td><td>Thoppanaickenpatti B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,ManaparaiSub Division</td></tr>
+ 
+ <tr><td>257</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Aduthurai S.O</td><td>Aduthurai S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>258</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Aduthurai S.O</td><td>Govindapuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>259</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Aduthurai S.O</td><td>TirunilakudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>260</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Konerirajapuram S.O</td><td>ParavakkaraiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>261</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Konerirajapuram S.O</td><td>ParavakkaraiB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>262</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Konerirajapuram S.O</td><td>VadamattamB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>263</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Manjakudi S.O</td><td>KilapalaiyurB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Kumbakonam South SubDivision</td></tr>
+ 
+ 
+ <tr><td>264</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Narasinganpettai S.O</td><td>Narasinganpettai S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>265</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Natchar KoilS.O</td><td>Natchar KoilS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>266</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Natchar KoilS.O</td><td>ThukkachiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>267</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Palaiyur S.O</td><td>Palaiyur S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>268</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Palaiyur S.O</td><td>Sengarangudipudur B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>269</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Sakkottai S.O</td><td>Sakkottai S.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,Kumbakonam South SubDivision</td></tr>
+
+
+
+
+
+
+ 
+ <tr><td>270</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>SembangudiS.O</td><td>Engan B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>271</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>SengalipuramS.O</td><td>ParuthiyurB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>272</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>SengalipuramS.O</td><td>Sithadi B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Kumbakonam South SubDivision</td></tr>
+ 
+ 
+ <tr><td>273</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>SengalipuramS.O</td><td>Sithadi B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>274</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Tippirajapuram S.O</td><td>Visalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Kumbakonam South SubDivision</td></tr>
+ 
+ 
+ <tr><td>275</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Tiruchirai S.O</td><td>Nagarasampettai B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Kumbakonam South SubDivision</td></tr>
+ 
+ 
+ <tr><td>276</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>Tirunageswaram S.O</td><td>Tepperumanallur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>277</td><td>Kumbakonam</td><td>KumbakonamH.O</td><td>TirupuvanamS.O</td><td>Ammachathiram B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>278</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Komal S.O</td><td>Gangadarapuram B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>279</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Komal S.O</td><td>Komal S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-VH</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>280</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Komal S.O</td><td>Kozhaiyur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>281</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Koranattukkaruppur S.O</td><td>NirathanallurB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>282</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Kuttalam S.O</td><td>Kuttalam S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>283</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Lower AnicutS.O</td><td>MullangudiB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>284</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Lower AnicutS.O</td><td>Thathuvancheri B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>285</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Malliyam S.O</td><td>Moovalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>286</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Malliyam S.O</td><td>Moovalur B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>287</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>MelakaveriH.O</td><td>MelakaveriH.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>288</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>PandanallurS.O</td><td>Karuppur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>289</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>PandanallurS.O</td><td>Karuppur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>290</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>PandanallurS.O</td><td>Kilakattur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Kumbakonam</td></tr>
+ 
+ <tr><td>291</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Thuhili S.O</td><td>Thuhili S.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>292</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Thuhili S.O</td><td>Tiruloki B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>293</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Thuhili S.O</td><td>Tiruloki B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>294</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>TirupanandalS.O</td><td>Koorchi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>295</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Tiruvavaduthurai S.O</td><td>Tiruvavaduthurai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KuttalamSub Division</td></tr>
+ 
+ <tr><td>296</td><td>Kumbakonam</td><td>MelakaveriH.O</td><td>Veppathur S.O</td><td>Anaikudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Kumbakonam NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>297</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Akkur S.O(Nagapattinam)</td><td>Akkur S.O(Nagapattinam)</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ <tr><td>298</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Kilaiyur S.O</td><td>Kilaiyur S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>2</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>299</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>KollumangudiS.O</td><td>KaliyakudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>300</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>KollumangudiS.O</td><td>NedungulamB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>301</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>KollumangudiS.O</td><td>SirupuliyurB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>302</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>ManalmeduS.O</td><td>Mudikondanallur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>303</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>ManganallurBazaar S.O</td><td>ManganallurB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>304</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai H.O</td><td>Koranad S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>305</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai Cutchery S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>306</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai H.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>2</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>307</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai H.O</td><td>Mayiladuthurai South S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>308</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Peralam S.O</td><td>Peralam S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>309</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Porayar S.O</td><td>Porayar R.S.B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>310</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>PunthottamS.O</td><td>Ambal B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>311</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>PunthottamS.O</td><td>KoothanurB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>312</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>PunthottamS.O</td><td>PunthottamS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>313</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>PunthottamS.O</td><td>Sarabojirajapuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>314</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>SembanarkoilS.O</td><td>Arupathy B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>315</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>SembanarkoilS.O</td><td>Memathur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>316</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>SembanarkoilS.O</td><td>Parasalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>317</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>SembanarkoilS.O</td><td>Parasalur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>318</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Solasakkaranallur S.O</td><td>Manakudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>319</td><td>Mayiladuthurai</td><td>Mayiladuthurai H.O</td><td>Vadakarai S.O(Nagapattinam)</td><td>Vadakarai S.O(Nagapattinam)</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Mayiladuthurai SouthSub Division</td></tr>
+ 
+ 
+ <tr><td>320</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>AchalpuramS.O</td><td>AchalpuramS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>321</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>AchalpuramS.O</td><td>PudupattinamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>322</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Anaikaranchatram S.O</td><td>Anaikaranchatram S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+
+
+
+
+
+
+
+
+
+
+ 
+ <tr><td>323</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Anaikaranchatram S.O</td><td>Anaikaranchatram SouthB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ 
+ <tr><td>324</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Ilanthope S.O</td><td>Ilanthope S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>325</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Kadavasal S.O</td><td>Kannukiniyanar Koil B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>326</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Kaveripattinam S.O(Nagapattinam)</td><td>Kaveripattinam Beach B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ 
+ <tr><td>327</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Kaveripattinam S.O(Nagapattinam)</td><td>NeidavasalB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ 
+ <tr><td>328</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>MangamadamS.O</td><td>MangamadamS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>329</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>MangamadamS.O</td><td>Nangur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>330</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>MangamadamS.O</td><td>PerunthottamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>331</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Melaiyur TVGS.O</td><td>Melaiyur TVGS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>332</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Melaiyur TVGS.O</td><td>Melaiyur TVGS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>333</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Puthur (SRK)S.O</td><td>SodiyakudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>334</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Puthur (SRK)S.O</td><td>TirumailadiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>335</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Sattanathapuram S.O</td><td>KaraimeduB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>336</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Sattanathapuram S.O</td><td>Sattanathapuram S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>337</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Sattanathapuram S.O</td><td>Tiruvali B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>338</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Sirkali H.O</td><td>Sirkali H.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>339</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>SirkaliThenpathi S.O</td><td>ArappakkamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>340</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>SirkaliThenpathi S.O</td><td>SirkaliThenpathi S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>341</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>TirucadaiyurS.O</td><td>Tirumeignanam B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>342</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Tirumullaivasal S.O</td><td>Koolaiyar B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>343</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>TirupungurS.O</td><td>Karkoil B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>344</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>TirupungurS.O</td><td>Karkoil B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>345</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Tiruvalaputhur S.O</td><td>Pulavanur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>346</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Tiruvalaputhur S.O</td><td>SiddamalliB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>347</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Tiruvalaputhur S.O</td><td>Tiruvalaputhur S.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-VH</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>348</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>TiruvengaduS.O</td><td>ManigramamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>349</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>TiruvengaduS.O</td><td>Radhanallur(TVG) B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+
+
+
+
+ 
+ <tr><td>350</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Vaithiswarankoil S.O</td><td>Pagasalai B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>351</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Vaithiswarankoil S.O</td><td>Pagasalai B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>352</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Vaithiswarankoil S.O</td><td>Punganur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>353</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Vaithiswarankoil S.O</td><td>Punganur B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>354</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>Vaithiswarankoil S.O</td><td>Vaithiswarankoil S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,Mayiladuthurai NorthSub Division</td></tr>
+ 
+ 
+ <tr><td>355</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>ValluvakudiS.O</td><td>Elathur B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>356</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>ValluvakudiS.O</td><td>Nemmeli(SRK)B.O</td><td>GDS BPM</td><td>PH-OH</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>357</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>ValluvakudiS.O</td><td>ValluvakudiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>358</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>VarisapathuVadagal S.O</td><td>Edamanal B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>359</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>VarisapathuVadagal S.O</td><td>Edamanal B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Mayiladuthurai</td></tr>
+ 
+ <tr><td>360</td><td>Mayiladuthurai</td><td>Sirkali H.O</td><td>VarisapathuVadagal S.O</td><td>Radhanallur(SRK) B.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,Sirkali SubDivision</td></tr>
+ 
+ <tr><td>361</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>AndanapettaiS.O</td><td>AndanapettaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>362</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Kilaiyur(Tiruvarur)S.O</td><td>MadapuramB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ 
+ <tr><td>363</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Kilvelur S.O</td><td>Aliyur B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>364</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Kilvelur S.O</td><td>Tirukannangudi B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>365</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>KollapuramS.O</td><td>Ubayavedanthapuram B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>366</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>KottucheryS.O</td><td>TiruvettakudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>367</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Kuthur S.O</td><td>Kurukathi B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>368</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>NagapattinamH.O</td><td>VelippalayamS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>369</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>Muttam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>370</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>Nagore S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>371</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>Nagore SouthS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-VH</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>372</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>NarimanamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>373</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>NarimanamB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>374</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Nagore S.O</td><td>PanangudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>375</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>NedungaduS.O</td><td>NedungaduS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>376</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Neravy S.O</td><td>AkkaraivattamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+
+
+
+
+ 
+ <tr><td>377</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Sikkal S.O(Nagapattinam)</td><td>Avaranipuducherri B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ 
+ <tr><td>378</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>ThalatheruS.O</td><td>ThalatheruS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-OTR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>379</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>ThalatheruS.O</td><td>ThalatheruS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>380</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Thevur S.O(Nagapattinam)</td><td>Killukudi B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ 
+ <tr><td>381</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Thevur S.O(Nagapattinam)</td><td>Radhamangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>382</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Thevur S.O(Nagapattinam)</td><td>Thevur S.O(Nagapattinam)</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>383</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Thevur S.O(Nagapattinam)</td><td>VadugacheryB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>384</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Tirunallar S.O</td><td>Sellur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>385</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Tirupundi S.O</td><td>KarapidagaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>386</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Tittachery S.O</td><td>AlangudicheryB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>387</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Tittachery S.O</td><td>P.KondagaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>388</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Vettaikaraniruppu S.O</td><td>Koilpathu B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>389</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Vettaikaraniruppu S.O</td><td>Koilpathu B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>390</td><td>Nagapattinam</td><td>NagapattinamH.O</td><td>Vettaikaraniruppu S.O</td><td>VellapallamB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>391</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Adiakkamangalam S.O</td><td>Kakkalani B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>392</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>AmmayappanS.O</td><td>AmmayappanS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>393</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>AmmayappanS.O</td><td>Athisolamangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>394</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>AmmayappanS.O</td><td>MukundanurB.O</td><td>GDS BPM</td><td>PH-OH</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>395</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>AmmayappanS.O</td><td>Solachery B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>396</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>KachanamS.O</td><td>KachanamS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>397</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>KamalapuramS.O(Tiruvarur)</td><td>Erukattur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ 
+ <tr><td>398</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>KamalapuramS.O(Tiruvarur)</td><td>Velukudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ 
+ <tr><td>399</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kangalanchery S.O</td><td>Amur B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>400</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kangalanchery S.O</td><td>KilathanjavurB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>401</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kangalanchery S.O</td><td>Nadapur B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>402</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kangalanchery S.O</td><td>PalayavalamB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>403</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kangalanchery S.O</td><td>Virkudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>404</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Kulikarai S.O</td><td>Kulikarai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+
+
+
+
+ 
+ <tr><td>405</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Mangudi S.O</td><td>KilamanaliB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>406</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Mavoor S.O(Tiruvarur)</td><td>Komal B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>407</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Mavoor S.O(Tiruvarur)</td><td>TirukaravasalB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>408</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Mavoor S.O(Tiruvarur)</td><td>Tirunattiyathankudi B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>409</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>MudikondanS.O</td><td>MudikondanS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>410</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Nannilam S.O</td><td>NannilamCutchery S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>411</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Nannilam S.O</td><td>Vadagudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>412</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Ponnirai S.O</td><td>AlathambadiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>413</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Ponnirai S.O</td><td>AndankaraiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>414</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Ponnirai S.O</td><td>AndankaraiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>415</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Ponnirai S.O</td><td>Ponnirai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>416</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Ponnirai S.O</td><td>Sithaimur B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>417</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Pulivalam S.O(Tiruvarur)</td><td>KilapadugaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>418</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>SannanallurS.O</td><td>PanangudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>419</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>SannanallurS.O</td><td>SannanallurS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>420</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Thappalampuliyur S.O</td><td>Andakudi B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>421</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Thappalampuliyur S.O</td><td>Sigar B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>422</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Tirukannapuram S.O</td><td>Pillali B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,KaraikalSub Division</td></tr>
+ 
+ <tr><td>423</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Tirukannapuram S.O</td><td>Tiruchenkattangudi B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>424</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>TirukuvalaiS.O</td><td>Ettukudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>425</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>TirukuvalaiS.O</td><td>TirukuvalaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>426</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>TirunellikavalS.O</td><td>SeruvamaniB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ <tr><td>427</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>TiruvarurCollectorateS.O</td><td>Thandalai B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>ASP,TiruvarurSub Division</td></tr>
+ 
+ 
+ <tr><td>428</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Valivalam S.O</td><td>Koorathangudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>429</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Valivalam S.O</td><td>Koorathangudi B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Nagapattinam</td></tr>
+ 
+ <tr><td>430</td><td>Nagapattinam</td><td>Tiruvarur H.O</td><td>Valivalam S.O</td><td>Valivalam S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Nagapattinam SubDivision</td></tr>
+ 
+ 
+ <tr><td>431</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Adirampattinam S.O</td><td>EripurakaraiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>432</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Adirampattinam S.O</td><td>MagilankottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>433</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Adirampattinam S.O</td><td>RajamadamB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>434</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>AladikkumulaiS.O</td><td>AladikkumulaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-HH</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+
+
+
+
+
+
+
+
+ 
+ <tr><td>435</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>AladikkumulaiS.O</td><td>SandangaduB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>436</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>AladikkumulaiS.O</td><td>SandangaduB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>437</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Alathur S.O</td><td>AlampallamB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>438</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Alathur S.O</td><td>Alathur S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>439</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Alathur S.O</td><td>KannugudiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>440</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Alathur S.O</td><td>KannugudiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>441</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Alathur S.O</td><td>KannugudiKilpathi B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>442</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Avanam S.O</td><td>Avanam S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>443</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>KottaitheruS.O</td><td>KakkaraikottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>444</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>KottaitheruS.O</td><td>KottaitheruS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>445</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>KottaitheruS.O</td><td>MudalipattiB.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>446</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>KottaitheruS.O</td><td>MudalipattiB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>447</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Kuruvikarambai S.O</td><td>Kuruvikarambai S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>448</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Kuruvikarambai S.O</td><td>Sethubavachatram B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>449</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Kuruvikarambai S.O</td><td>VirayankottaiB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>450</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Madukkur S.O</td><td>Kadanthankudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>451</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Madukkur S.O</td><td>KalyanaodaiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>452</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Madukkur S.O</td><td>MadukkurNorth B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>453</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>MallipattinamS.O</td><td>MallipattinamS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>454</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>MallipattinamS.O</td><td>Rendampulikadu B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>455</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>MelauluvurS.O</td><td>Kandithampattu B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>456</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>MelauluvurS.O</td><td>Panchanathikottai B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>457</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Nadimuthunagar S.O</td><td>Adambai B.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>458</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Nadimuthunagar S.O</td><td>NaduvikottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>459</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Nadimuthunagar S.O</td><td>NaduvikottaiB.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>460</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Nadimuthunagar S.O</td><td>NainankulamB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>461</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Nadimuthunagar S.O</td><td>PannavayalB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>462</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>NattuchalaiS.O</td><td>MoothakurichiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr> 
+ <tr><td>463</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>NattuchalaiS.O</td><td>NattuchalaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>464</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>NattuchalaiS.O</td><td>VeppankulamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>465</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Orattanad S.O</td><td>Kannanthangudi MelaiyurB.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ 
+ <tr><td>466</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Orattanad S.O</td><td>NeduvakottaiB.O</td><td>GDS ABPM/Dak Sevak</td><td>SC</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>467</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Orattanad S.O</td><td>Orattanad S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>468</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Orattanad S.O</td><td>PulavankaduB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>469</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Orattanad S.O</td><td>ThennamanadB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>470</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>OttangaduS.O</td><td>Pallathur B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>471</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>OttangaduS.O</td><td>PunalvasalB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>472</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>AmbalapattuB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>473</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Pappanad S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>474</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Parangivettikadu B.O</td><td>GDS BPM</td><td>OBC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>475</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Peikarambankottai B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>476</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Tirunallur OndB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>477</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Vellur-ondB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>478</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Pappanad S.O</td><td>Vellur-ondB.O</td><td>GDS BPM</td><td>EWS</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>479</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>480</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>GDS ABPM/Dak Sevak</td><td>PH-OH</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>481</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>PattukottaiH.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>482</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Peravurni S.O</td><td>Mavadukurichi B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>483</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Peravurni S.O</td><td>MudachikaduB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>484</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Peravurni S.O</td><td>Punaikuthikadu B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>485</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Peravurni S.O</td><td>Sengamangalam B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>486</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>Ammanichatram B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>487</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>Ammanichatram B.O</td><td>GDS BPM</td><td>SC</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>488</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>PerumagalurS.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>489</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>Rudrachinthamani B.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+
+
+ 
+ <tr><td>490</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>TiruvattevanB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>491</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>PerumagalurS.O</td><td>VilankulamB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>492</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TamarankottaiS.O</td><td>Attivetti B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>493</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TamarankottaiS.O</td><td>ManjavayalB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>494</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TamarankottaiS.O</td><td>MannangaduB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>495</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TamarankottaiS.O</td><td>Vattakudi B.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>496</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Tiruchitrambalam S.O</td><td>Neyvelivadapathi B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>497</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Tiruchitrambalam S.O</td><td>SiruvaviduthiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>498</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Tiruchitrambalam S.O</td><td>Tiruchitrambalam S.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiWest SubDivision</td></tr>
+ 
+ 
+ <tr><td>499</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TiruvonamS.O</td><td>Thaligaividuthy B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>500</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TiruvonamS.O</td><td>TiruvonamS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>501</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TiruvonamS.O</td><td>UnjividuthiB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>502</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>TiruvonamS.O</td><td>UranipuramB.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>503</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Vadaseri S.O</td><td>Tirumangalakottai KilayurB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ 
+ <tr><td>504</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Vadaseri S.O</td><td>Vadaseri S.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>505</td><td>Pattukottai</td><td>PattukottaiH.O</td><td>Vadaseri S.O</td><td>Vadaseri S.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,OrattanadSub Division</td></tr>
+ 
+ <tr><td>506</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>Adanur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Tiruthuraipundi SubDivision</td></tr>
+ 
+ 
+ <tr><td>507</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>GDS ABPM/Dak Sevak</td><td>EWS</td><td>1</td><td>10000-24470</td><td>IP,Tiruthuraipundi SubDivision</td></tr>
+ 
+ 
+ <tr><td>508</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Tiruthuraipundi SubDivision</td></tr>
+ 
+ 
+ <tr><td>509</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Ayakkarambalam Ii SethiS.O</td><td>Ayakkarambalam III SethiB.O</td><td>GDS ABPM/Dak Sevak</td><td>OBC</td><td>1</td><td>10000-24470</td><td>IP,Tiruthuraipundi SubDivision</td></tr>
+ 
+ 
+ <tr><td>510</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Idaiyur S.O</td><td>Ariyalur B.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>511</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Idaiyur S.O</td><td>DevadanamB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>512</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>JambavanodaiS.O</td><td>JambavanodaiS.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,PattukottaiEast SubDivision</td></tr>
+ 
+ 
+ <tr><td>513</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Kariyapattinam S.O</td><td>PirandiankaraiB.O</td><td>GDS BPM</td><td>UR</td><td>1</td><td>12000-29380</td><td>SP,Pattukottai</td></tr>
+ 
+ <tr><td>514</td><td>Pattukottai</td><td>TiruturaipundiH.O</td><td>Kariyapattinam S.O</td><td>RajapuramB.O</td><td>GDS ABPM/Dak Sevak</td><td>UR</td><td>1</td><td>10000-24470</td><td>IP,Tiruthuraipundi SubDivision</td></tr>
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>S.No.</th>
+                <th>Division</th>
+                <th>HO Name</th>
+                <th>SO Name</th>
+                <th>BO Name</th>
+                <th>Post Name</th>
+                <th>Category</th>
+                <th>No of Posts</th>
+                <th>Scale of Pay</th>
+                <th>Recruiting Authority</th>
+            </tr>
+        </tfoot>
+    </table>
     
-     var marker = new google.maps.Marker({
-      position: {
-       lat: 10.0731,
-       lng: 78.7802
-      },
-      map: map
-     });
-    }
-   </script>
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhQKDJYlHAEHHo7FgCNUOMJBUiJD_Jkvs&callback=initMap" async defer></script>
-
-   <footer class="footer" style="background: black" id="book">
-
-    <div class="footer-content">
-
-     <form id="form" class="topBefore">
-
-      <h2>GET IN TOUCH</h2>
-
-      <div id="error"></div>
-
-      <span class="input--kuro">
-                          <input class="input__field input__field--kuro" name="name" id="name" type="text">
-                          <label class="input__label input__label--kuro" for="name">
-                           <span class="placeholder">Name</span>
-      </label>
-      </span>
-
-      <span class="input--kuro">
-                          <input class="input__field input__field--kuro" name="email" id="email" type="text">
-                          <label class="input__label input__label--kuro" for="input-7">
-                              <span class="placeholder">E-Mail</span>
-      </label>
-      </span>
-
-
-      <textarea name="message" id="message" type="text"></textarea>
-      <input id="submit" type="submit" value="SEND">
-
-
-     </form>
-     <!--End of Contact Form-->
-
-     <div class="address-container">
-      <div class="logo">
-       <svg version="1.1" id="Layer_2" class="vape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 311.5 410.8" style="enable-background:new 0 0 311.5 410.8;" xml:space="preserve">
-                            <style type="text/css">
-                	.st3{fill:none;stroke:#FFF;stroke-miterlimit:10;stroke-width:6px;}
-                            </style>
-                        <rect id="XMLID_2_" x="70.8" y="129" transform="matrix(-0.7431 -0.6691 0.6691 -0.7431 83.6609 547.1416)" class="st3" width="152" height="257"/>
-                        <polyline id="XMLID_1_" class="st3" points="218.4,149.7 291.6,68.3 248.9,29.8 176.3,111.2 "/>
-                        <polyline id="XMLID_4_" class="st3" points="255.6,36.6 276,13.9 305,40 284.6,62.7 "/>
-                        <line id="XMLID_5_" class="st3" x1="234.9" y1="45.4" x2="277.2" y2="83.6"/>
-                        <line id="XMLID_6_" class="st3" x1="191.4" y1="93.7" x2="233.7" y2="131.9"/>
-                        <line id="XMLID_7_" class="st3" x1="248.3" y1="58.2" x2="204.8" y2="106.5"/>
-                        <line id="XMLID_8_" class="st3" x1="263.1" y1="71.6" x2="219.6" y2="119.9"/>
-                        <rect id="XMLID_3_" x="87.1" y="161" transform="matrix(-0.7431 -0.6691 0.6691 -0.7431 80.3177 546.7495)" class="st3" width="116" height="194"/>
-                        <polyline id="XMLID_10_" class="st3" points="237.4,269.8 246,277.5 209.8,317.6 201.3,309.9 "/>
-                        <polyline id="XMLID_11_" class="st3" points="194.6,317.3 202.8,324.7 191.8,337.7 183.2,330 "/>
-                        <polyline id="XMLID_12_" class="st3" points="177.2,336.6 185,343.7 172.9,357 165.1,350 "/>
-                        <path id="XMLID_9_" class="st3" d="M97.4,507"/>
-                    </svg>
-
-      </div>
-
-      <div class="contact-info">
-       <p>Manik's residence </br>
-        is located in 100 feet road, </br>
-        New town, Karaikudi, India
-       </p>
-
-
-       <p>Info: <span class="phone">+91-86753 11332</span></br>
-        <a href="mailto:manikchand1995@gmail.com?subject=feedback">manikchand1995@gmail.com</a>
-       </p>
-
-
-       <p>Open: </br>
-        Mon-Sat 6 PM-11PM
-       </p>
-      </div>
-     </div>
-     <!--End of Address Container-->
-
-
-    </div>
-    <!--End of Footer content-->
-
-    <div class="bottom-links">
-     <div class="social">
-      <a href="https://www.facebook.com">
-       <svg version="1.1" id="Layer_1" class="social-link fb" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-471 272 17 17" style="enable-background:new -471 272 17 17;" xml:space="preserve">
-                    <style type="text/css">
-                        .st1{fill:#FFF;}
-                    </style>
-                    <title>Fill 1</title>
-                    <desc>Created with Sketch.</desc>
-                    <g id="Page-1">
-                        <g id="EstacaoLeopoldina-Site" transform="translate(-697.000000, -8034.000000)">
-                            <g id="Footer" transform="translate(0.000000, 7702.000000)">
-                                <g id="Group-4" transform="translate(697.000000, 332.000000)">
-                                    <path id="Fill-1" class="st1" d="M-455.4,272h-14.7c-0.5,0-0.9,0.4-0.9,0.9v15.1c0,0.5,0.4,0.9,0.9,0.9h7.9v-6.6h-2.2v-2.6h2.2
-                                        V278c0-2.2,1.3-3.4,3.2-3.4c0.9,0,1.7,0.1,1.9,0.1v2.3l-1.3,0c-1,0-1.2,0.5-1.2,1.2v1.6h2.5l-0.3,2.6h-2.1v6.6h4.2
-                                        c0.5,0,0.9-0.4,0.9-0.9v-15.1C-454.5,272.4-454.9,272-455.4,272"/>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                    </svg>
-      </a>
-
-      <a href="http://www.instagram.com">
-       <svg version="1.1" id="Layer_1" class="social-link inst" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-470 272 18 17" style="enable-background:new -470 272 18 17;" xml:space="preserve">
-                        <style type="text/css">
-                        	.st2{fill:#FFFFFF;}
-                        </style>
-                        <title>Page 1</title>
-                        <desc>Created with Sketch.</desc>
-                        <g id="Page-1_1_">
-                        	<g id="EstacaoLeopoldina-Site" transform="translate(-726.000000, -8034.000000)">
-                        		<g id="Footer" transform="translate(0.000000, 7702.000000)">
-                        			<g id="Group-4" transform="translate(697.000000, 332.000000)">
-                        				<path id="Page-1" class="st2" d="M-432.1,273.5c2.3,0,2.5,0,3.4,0c0.8,0,1.3,0.2,1.6,0.3c0.4,0.2,0.7,0.3,1,0.6
-                        					c0.3,0.3,0.5,0.6,0.6,1c0.1,0.3,0.3,0.7,0.3,1.6c0,0.9,0,1.2,0,3.4c0,2.3,0,2.5,0,3.4c0,0.8-0.2,1.3-0.3,1.6
-                        					c-0.2,0.4-0.3,0.7-0.6,1c-0.3,0.3-0.6,0.5-1,0.6c-0.3,0.1-0.8,0.3-1.6,0.3c-0.9,0-1.2,0-3.4,0s-2.5,0-3.4,0
-                        					c-0.8,0-1.3-0.2-1.6-0.3c-0.4-0.2-0.7-0.3-1-0.6c-0.3-0.3-0.5-0.6-0.6-1c-0.1-0.3-0.3-0.7-0.3-1.6c0-0.9,0-1.2,0-3.4
-                        					c0-2.3,0-2.5,0-3.4c0-0.8,0.2-1.3,0.3-1.6c0.2-0.4,0.3-0.7,0.6-1c0.3-0.3,0.6-0.5,1-0.6c0.3-0.1,0.8-0.3,1.6-0.3
-                        					C-434.7,273.5-434.4,273.5-432.1,273.5 M-432.1,272c-2.3,0-2.6,0-3.5,0.1c-0.9,0-1.5,0.2-2.1,0.4c-0.6,0.2-1,0.5-1.5,1
-                        					c-0.5,0.5-0.8,0.9-1,1.5c-0.2,0.5-0.4,1.2-0.4,2.1c0,0.9-0.1,1.2-0.1,3.5c0,2.3,0,2.6,0.1,3.5c0,0.9,0.2,1.5,0.4,2.1
-                        					c0.2,0.6,0.5,1,1,1.5c0.5,0.5,0.9,0.8,1.5,1c0.5,0.2,1.2,0.4,2.1,0.4c0.9,0,1.2,0.1,3.5,0.1c2.3,0,2.6,0,3.5-0.1
-                        					c0.9,0,1.5-0.2,2.1-0.4c0.6-0.2,1-0.5,1.5-1c0.5-0.5,0.8-0.9,1-1.5c0.2-0.5,0.4-1.2,0.4-2.1c0-0.9,0.1-1.2,0.1-3.5
-                        					c0-2.3,0-2.6-0.1-3.5c0-0.9-0.2-1.5-0.4-2.1c-0.2-0.6-0.5-1-1-1.5c-0.5-0.5-0.9-0.8-1.5-1c-0.5-0.2-1.2-0.4-2.1-0.4
-                        					C-429.5,272-429.8,272-432.1,272 M-427.8,280.5c0,2.4-2,4.4-4.4,4.4s-4.4-2-4.4-4.4c0-2.4,2-4.4,4.4-4.4
-                        					S-427.8,278.1-427.8,280.5 M-429.3,280.5c0-1.6-1.3-2.8-2.8-2.8c-1.6,0-2.8,1.3-2.8,2.8c0,1.6,1.3,2.8,2.8,2.8
-                        					C-430.6,283.3-429.3,282.1-429.3,280.5 M-426.6,276c0,0.6-0.5,1-1,1c-0.6,0-1-0.5-1-1c0-0.6,0.5-1,1-1
-                        					C-427,274.9-426.6,275.4-426.6,276"/>
-                        			</g>
-                        		</g>
-                        	</g>
-                        </g>
-                        </svg>
-      </a>
-
-     </div>
-     <!--End of Social-->
-
-
-     <div class="copiright">
-      ©Copyright 2017 Manik
-     </div>
-    </div>
-    <!--End of Bottom Links-->
-
-
-   </footer>
-   <!--End of Footer-->
-
-  </div>
-  <!--End of Contact-->
-
- </div>
- <!--End of Sections-->
-
-
- <script src="js/menu.js" charset="utf-8"></script>
- <script src="js/slider.js" charset="utf-8"></script>
- <script src="js/scrollanimate.js" charset="utf-8"></script>
- <script src="js/svganimate.js" charset="utf-8"></script>
-
-
+    
 </body>
-
 </html>
